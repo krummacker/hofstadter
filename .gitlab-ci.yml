@@ -1,0 +1,10 @@
+image: gcc:latest
+
+stages:
+  - run
+
+run:
+  stage: run
+  script:
+    - cc hofstadter.c -o hofstadter
+    - ./hofstadter

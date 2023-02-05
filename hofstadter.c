@@ -1,36 +1,24 @@
-/*
-  Hofstadter-Funktion - rekursiv
-  Autor: Dirk Krummacker
-  Programmierungsbeginn: 13-Jun-96
-  Letzte Änderung: 13-Jun-96
-  Beschreibung:
-    Rekursive Berechnung der Hofstadter-Funktion. Wann stockt der PC ???
-*/
+#include <stdio.h>
 
-#include <stdio.h>  /* Ein-/Ausgabebibliothek */
-
-int hof (int x);
-
-void main()  /* Hauptprogramm */
+// hof calculates the Hofstadter function value of the specified argument.
+int hof(int x)
 {
-  /* Variablendeklaration */
-  int lauf, grenze=50;  /* Obergrenze */
-
-  /* Überschrift */
-  printf("\nHofstadter-Funktion:");
-  printf("\n");
-
-  /* Schleife */
-  for (lauf=1; lauf<grenze; lauf++)
-  {
-    printf("\nhof(%i) = %i", lauf, hof(lauf));
-  }
-} 
-
-int hof (int x)
-{
-  if ((x==1) || (x==2))
+  if ((x == 1) || (x == 2))
     return 1;
   else
-    return hof(x-hof(x-1))+hof(x-hof(x-2));
+    return hof(x - hof(x - 1)) + hof(x - hof(x - 2));
+}
+
+int main()
+{
+  int limit = 42;
+
+  printf("\nHofstadter function:");
+  printf("\n");
+
+  for (int loop = 1; loop <= limit; loop++)
+  {
+    printf("\nhof(%i) = %i", loop, hof(loop));
+  }
+  return 0;
 }
