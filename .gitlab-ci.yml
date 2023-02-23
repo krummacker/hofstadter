@@ -6,5 +6,5 @@ stages:
 run:
   stage: run
   script:
-    - cc hofstadter.c -o hofstadter
+    - make all
     - ./hofstadter
