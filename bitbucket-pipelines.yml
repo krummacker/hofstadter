@@ -1,0 +1,11 @@
+image: gcc:latest
+
+pipelines:
+  default:
+    - step:
+        name: Run
+        script:
+          - make all
+          - ./hofstadter
+
+
