@@ -1,10 +1,14 @@
 image: gcc:latest
 
 stages:
-  - run
+  - test
 
 run:
-  stage: run
+  stage: test
   script:
     - make all
     - ./hofstadter
+
+# test stage
+include:
+  - template: Jobs/SAST.gitlab-ci.yml
